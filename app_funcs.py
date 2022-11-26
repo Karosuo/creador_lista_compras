@@ -1,34 +1,4 @@
-from utils.py import mezcla_listas, yaml_to_python
-
-def suma_listas(*argv):
-    """
-    Mezcla todas las listas que se pasen como parámetro
-    y luego suma las cantidades de los articulos compartidos entre las listas    
-
-    DEPENDECY
-    ---------
-    mezcla_listas(*argv):
-
-    Parameters
-    ----------
-    argv : list
-        lista de diccionarios con el formato de refri.yaml
-
-    Returns
-    -------
-    Lista mezclada de articulos con cantidades sumadas : dict                
-    """
-    lista_mezclada = mezcla_listas(argv)
-    lista_mezclada_sumada = {}
-    for articulo,_ in lista_mezclada:
-        for c_list in argv:
-            if not lista_mezclada_sumada.get(articulo):
-                lista_mezclada_sumada[articulo] = lista_mezclada[articulo]
-                lista_mezclada_sumada[articulo]["cantidad"] = c_list[articulo]["cantidad"]
-            else:
-                lista_mezclada_sumada[articulo]["cantidad"] = lista_mezclada_sumada[articulo].get("cantidad", 0) + c_list[articulo]["cantidad"]
-
-    return lista_mezclada_sumada
+from utils import yaml_to_python
 
 def get_recetas():
     """
