@@ -32,6 +32,38 @@ def print_lista_de_compras(lista_compras):
         )
     return lista_compras_formateada
 
+def suma_listas(*argv):
+    """
+    Mezcla todas las listas que se pasen como parámetro
+    y luego suma las cantidades de los articulos compartidos entre las listas    
+
+    Parameters
+    ----------
+    argv : list
+        lista de diccionarios con el formato de refri.yaml
+
+    Returns
+    -------
+    Lista mezclada de articulos con cantidades sumadas : dict                
+    """
+    # import pdb
+    # pdb.set_trace()
+    lista_mezclada = {}
+    for c_list in argv:
+        lista_mezclada = lista_mezclada | c_list
+
+    lista_mezclada_sumada = {}
+    for articulo, _ in lista_mezclada.items():
+        for c_list in argv:
+            if not lista_mezclada_sumada.get(articulo):
+                lista_mezclada_sumada[articulo] = dict(lista_mezclada[articulo])
+                lista_mezclada_sumada[articulo]["cantidad"] = 0
+            
+            if c_list.get(articulo):
+                lista_mezclada_sumada[articulo]["cantidad"] = lista_mezclada_sumada[articulo]["cantidad"] + c_list[articulo]["cantidad"]
+    return lista_mezclada_sumada
+
+
 def resta_listas(lista_A, lista_B):
     """
     Resta las cantidades de los articulos en la lista_B de la lista_A (lista_A - lista_B)
@@ -118,7 +150,7 @@ def suma_ingredientes_recetas(lista_recetas):
         for ingrediente, detalles in propiedades["ingredientes"].items():
             suma_sin_acumulador = (detalles["cantidad"] * propiedades["cantidad"])
             if not suma_recetas.get(ingrediente):
-                suma_recetas[ingrediente] = detalles
+                suma_recetas[ingrediente] = dict(detalles)
                 suma_recetas[ingrediente]["cantidad"] = suma_sin_acumulador
             else:
                 suma_recetas[ingrediente]["cantidad"] = suma_recetas[ingrediente].get("cantidad", 0) + suma_sin_acumulador
