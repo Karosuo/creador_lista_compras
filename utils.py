@@ -84,15 +84,15 @@ def suma_ingredientes_recetas(lista_recetas):
     
     Parameters
     ----------
-    lista_recetas : list
-        Lista de diccionarios con el formato de recetas.yaml
+    lista_recetas : dictionary
+        diccionario de diccionarios con el formato de recetas.yaml
         Que serán mezclados, todos los ingredientes con el mismo nombre, se sumarán sus cantidades
         y se multiplicarán por la cantidad indicada de recetas
             
     Returns
     -------
-    lista de diccionarios : list
-        Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
+    ingredientes y la suma de sus cantidades : dict
+        Dict con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
         sumadas dependiendo de su aparición en las recetas    
 
     Basada en la respuesta de ospahiu en https://stackoverflow.com/questions/39000681/find-the-sum-of-values-within-the-values-of-a-nested-dictionary
@@ -100,7 +100,7 @@ def suma_ingredientes_recetas(lista_recetas):
     suma_recetas = {}
     for receta, propiedades in lista_recetas.items():
         for ingrediente, detalles in propiedades["ingredientes"].items():
-            suma_recetas[ingrediente] = suma_recetas.get(ingrediente, 0) + detalles["cantidad"]                
+            suma_recetas[ingrediente] = suma_recetas.get(ingrediente, 0) + (detalles["cantidad"] * propiedades["cantidad"])
     return suma_recetas
 
 def yaml_to_python(yaml_fp):
