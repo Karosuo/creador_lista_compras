@@ -46,8 +46,6 @@ def suma_listas(*argv):
     -------
     Lista mezclada de articulos con cantidades sumadas : dict                
     """
-    # import pdb
-    # pdb.set_trace()
     lista_mezclada = {}
     for c_list in argv:
         lista_mezclada = lista_mezclada | c_list
@@ -86,12 +84,14 @@ def resta_listas(lista_A, lista_B):
     -------
     lista_A con las cantidades de lista_B restadas: dict     
     """
-    lista_restada = {}
-    for articulo, detalles in lista_A:
+    # import pdb
+    # pdb.set_trace()
+
+    lista_restada = dict(lista_A)
+    for articulo, detalles in lista_restada.items():
         if lista_B.get(articulo):
-            restaAB = lista_A[articulo]["cantidad"] - lista_B[articulo]["cantidad"]
-            if restaAB > 0:
-                lista_restada[articulo] = lista_A[articulo]
+            restaAB = lista_restada[articulo]["cantidad"] - lista_B[articulo]["cantidad"]
+            if restaAB > 0:                
                 lista_restada[articulo]["cantidad"] = restaAB
     return lista_restada
 
