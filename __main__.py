@@ -6,7 +6,15 @@
 # Obtiene la lista de compras como
 # lista_compras = productos_base + suma_recetas - articulos_refri
 
-from utils import yaml_to_python, get_src_abspath, suma_ingredientes_recetas
+from utils import (
+    yaml_to_python,
+    get_src_abspath,
+    suma_ingredientes_recetas,
+    get_recetas,
+    suma_listas,
+    resta_listas,
+    list_to_str
+)
 
 productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
 articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))

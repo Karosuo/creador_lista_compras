@@ -10,5 +10,65 @@
   - nombre: "bolsa_espinacas_ch"  
     cantidad: 1
   - nombre: "walmart_salsa_chipotle"  
-    cantidad: 2
+    cantidad: 1
+  cantidad: 2
+
+- nombre: "Caesar con pollo"
+  ingredientes:
+  - nombre: "charola_pollo"  
+    cantidad: 1
+  - nombre: "lechuga"  
+    cantidad: 1
+  - nombre: "crutones"
+    cantidad: 1
+  - nombre: "queso_parmesano"
+    cantidad: 1
+  - nombre: "bolsa_espinacas_ch"  
+    cantidad: 1
+  - nombre: "aderezo_ranch"  
+    cantidad: 1
+  cantidad: 2
+
+- nombre: "Lentejas"
+  ingredientes:
+  - nombre: "lentejas"  
+    cantidad: 1
+  - nombre: "laurel"  
+    cantidad: 1
+  - nombre: "zanahorias"
+    cantidad: 1
+  - nombre: "cilantro"
+    cantidad: 1
+  cantidad: 2
+
+- nombre: "Sofrito"
+  ingredientes:
+  - nombre: "charola_pollo"  
+    cantidad: 1
+  - nombre: "lechuga"  
+    cantidad: 1
+  - nombre: "crutones"
+    cantidad: 1
+  - nombre: "queso_parmesano"
+    cantidad: 1
+  - nombre: "bolsa_espinacas_ch"  
+    cantidad: 1
+  - nombre: "aderezo_ranch"  
+    cantidad: 1
+  cantidad: 2
+
+- nombre: "Caesar con pollo"
+  ingredientes:
+  - nombre: "charola_pollo"  
+    cantidad: 1
+  - nombre: "lechuga"  
+    cantidad: 1
+  - nombre: "crutones"
+    cantidad: 1
+  - nombre: "queso_parmesano"
+    cantidad: 1
+  - nombre: "bolsa_espinacas_ch"  
+    cantidad: 1
+  - nombre: "aderezo_ranch"  
+    cantidad: 1
   cantidad: 2

@@ -41,7 +41,7 @@ def suma_listas(*argv):
     """
     pass
 
-def resta_listas(lista_recetas):
+def resta_listas(*argv):
     """
     Va agregando a una lista nueva los ingredientes/articulos y sus cantidades de cada una de las listas pasadas por parámetro
     Si los nombres de los ingredientes/articulos coinciden, se RESTAN sus cantidades
@@ -60,6 +60,22 @@ def resta_listas(lista_recetas):
         RESTADAS dependiendo de su aparición en las listas pasadas por parámetro
     """
     pass
+
+def get_recetas():
+    """
+    Obtiene una lista de todos los nombres de las recetas que existen en recetas.yaml
+    
+    Parameters
+    ----------
+    None 
+
+    Returns
+    -------
+    Lista de recetas : list
+        Lista de los nombres de todas las recetas
+    """
+    recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
+    return [item["nombre"] for item in recetas]
 
 def suma_ingredientes_recetas(lista_recetas):
     """
