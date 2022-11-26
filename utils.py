@@ -22,13 +22,22 @@ def print_lista_de_compras(lista_compras):
     lista de compras : string
     """
     lista_compras_formateada = ""
-    for articulo,detalles in lista_compras.items():
+    lista_compras_ordenada = sorted(lista_compras.items(), key=lambda x: x[1]["seccion"])
+    lista_compras_ordenada = dict(lista_compras_ordenada)
+    ultima_seccion = ""
+    for articulo,detalles in lista_compras_ordenada.items():
         cantidad = detalles["cantidad"]
         unidad = detalles.get("unidad", "pieza")
         f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
 
-        lista_compras_formateada = lista_compras_formateada + "{!s} {!s} de {!s}\n".format(
-            cantidad, f_unidad, articulo
+        if detalles["seccion"] != ultima_seccion:
+            c_seccion = "  -- {!s} --\n".format(detalles["seccion"])
+            ultima_seccion = detalles["seccion"]
+        else:
+            c_seccion = ""
+
+        lista_compras_formateada = lista_compras_formateada + "{!s}{!s} {!s} de {!s}\n".format(
+            c_seccion, cantidad, f_unidad, articulo
         )
     return lista_compras_formateada
 
