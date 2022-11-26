@@ -23,43 +23,47 @@ def print_lista_de_compras(lista_compras):
     """
     pass
 
-def suma_listas(*argv):
+def mezcla_listas(resta=False, *argv):
     """
-    Va agregando a una lista nueva los ingredientes/articulos y sus cantidades de cada una de las listas pasadas por parámetro
-    Si los nombres de los ingredientes/articulos coinciden, se suman sus cantidades
+    Le suma o le resta a la lista 0 (argv[0]) la suma de las cantidades existentes en el resto de listas pasadas por parámetros
+    Nota que las listas dentro de 'argv' son listas de artículos, pero están representadas por diccionarios en python
+
+    El procedimiento es como sigue:
+    - Mezcla todas las listas de ingredientes/articulos pasadas por parámetro
+    - Suma todos los valores encontrados por esas llaves de la lista mezclada, excepto el de la lista agrv[0]
+    - Si 'resta' es True,
+        toma la cantidad del ingrediente/articulo en argv[0] y le resta la suma de las otras listas
+        (si es <0 dicho ingrediente se elimina de la lista mezclada)
+    - Si 'resta' es False,
+        se suma la cantidad del ingrediente/articulo en argv[0] con la usma de las otras listas
+        y se guarda en la lista mezclada 
     
     Parameters
     ----------
     argv : list
-        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
+        Lista de los parametros pasados
+        Cada parámetro es un diccionaro de articulos con sus cantidades con el formato de refri.yaml o productos_base.yaml
             
     Returns
     -------
-    lista de diccionarios : list
-        Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
-        sumadas dependiendo de su aparición en las listas pasadas por parámetro    
+    lista mezclada de articulos : dict
+        Diccionario mezclado de todos los diccionarios pasados por parámetro, 
+        con el mismo formato que refri.yaml y productos_base.yaml con las cantidades de cada ingrediente
+        sumadas o restadas (dependiendo de la bandera 'resta')
     """
-    pass
+    # lista_mezclada = {lista_mezclada}
+    # suma_listas_sin_lista_0 = {}    
 
-def resta_listas(*argv):
-    """
-    Va agregando a una lista nueva los ingredientes/articulos y sus cantidades de cada una de las listas pasadas por parámetro
-    Si los nombres de los ingredientes/articulos coinciden, se RESTAN sus cantidades
+    # # Mezcla todas las listas de ingredientes/articulos pasadas por parámetro
+    # for c_list in argv:
+    #     lista_mezclada = lista_mezclada | c_list
+
+    # # Suma todos los valores encontrados por esas llaves de la lista mezclada, excepto el de la lista agrv[0]    
+    # for key,_ in lista_mezclada:
+    #     for c_list in argv[1:]:
+    #         suma_listas_sin_lista_0[key] = c_list[key].get("cantidad", 0) + c_list[key]["cantidad"]
+    pass
     
-    Si la resta de los articulos es <=0, entonces ese artículo no se incluye en la lista final (o se elimina si ya estaba)
-
-    Parameters
-    ----------
-    argv : list
-        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
-            
-    Returns
-    -------
-    lista de diccionarios : list
-        Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
-        RESTADAS dependiendo de su aparición en las listas pasadas por parámetro
-    """
-    pass
 
 def get_recetas():
     """
@@ -97,10 +101,14 @@ def suma_ingredientes_recetas(lista_recetas):
 
     Basada en la respuesta de ospahiu en https://stackoverflow.com/questions/39000681/find-the-sum-of-values-within-the-values-of-a-nested-dictionary
     """
+    import pdb
     suma_recetas = {}
     for receta, propiedades in lista_recetas.items():
         for ingrediente, detalles in propiedades["ingredientes"].items():
-            suma_recetas[ingrediente] = suma_recetas.get(ingrediente, 0) + (detalles["cantidad"] * propiedades["cantidad"])
+            suma_sin_acumulador = (detalles["cantidad"] * propiedades["cantidad"])
+            if not suma_recetas.get(ingrediente, None):
+                suma_recetas[ingrediente] = detalles                        
+            suma_recetas[ingrediente]["cantidad"] = suma_recetas[ingrediente].get("cantidad", 0) + (detalles["cantidad"] * propiedades["cantidad"])
     return suma_recetas
 
 def yaml_to_python(yaml_fp):
