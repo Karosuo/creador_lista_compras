@@ -5,6 +5,62 @@ from os.path import abspath, join
 
 SRC_BASE_PATH = pathlib.Path(__file__).parent.resolve()
 
+def list_to_str(lista_compras):
+    """
+    Parsea la lista recibida por parámetro y la convierte en una secuencia de strings
+    divididas por saltos de linea con el siguiente formato}
+        cantidad_articulos, nombre_articulo
+
+    
+    Parameters
+    ----------
+    lista_compras : list
+        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
+            
+    Returns
+    -------
+    lista de compras : string
+    """
+    pass
+
+def suma_listas(*argv):
+    """
+    Va agregando a una lista nueva los ingredientes/articulos y sus cantidades de cada una de las listas pasadas por parámetro
+    Si los nombres de los ingredientes/articulos coinciden, se suman sus cantidades
+    
+    Parameters
+    ----------
+    argv : list
+        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
+            
+    Returns
+    -------
+    lista de diccionarios : list
+        Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
+        sumadas dependiendo de su aparición en las listas pasadas por parámetro    
+    """
+    pass
+
+def resta_listas(lista_recetas):
+    """
+    Va agregando a una lista nueva los ingredientes/articulos y sus cantidades de cada una de las listas pasadas por parámetro
+    Si los nombres de los ingredientes/articulos coinciden, se RESTAN sus cantidades
+    
+    Si la resta de los articulos es <=0, entonces ese artículo no se incluye en la lista final (o se elimina si ya estaba)
+
+    Parameters
+    ----------
+    argv : list
+        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
+            
+    Returns
+    -------
+    lista de diccionarios : list
+        Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
+        RESTADAS dependiendo de su aparición en las listas pasadas por parámetro
+    """
+    pass
+
 def suma_ingredientes_recetas(lista_recetas):
     """
     Suma los ingredientes de todas las recetas y los pone en una lista de diccionarios con el mismo
