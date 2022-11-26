@@ -3,6 +3,16 @@
 pan:
   cantidad: 1
   unidad: "barra"
+  seccion: "abarrotes"
+aguacate:
+  cantidad: 1
+  unidad: bolsa
+  seccion: "verduras"
 walmart_jabon_ropa:
   cantidad: 3
   unidad: "botella"
+  seccion: "pasillo"
+suavitel:
+  cantidad: 1
+  unidad: "botella"
+  seccion: "pasillo"

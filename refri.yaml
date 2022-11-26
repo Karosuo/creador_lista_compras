@@ -3,6 +3,8 @@
 pan:
   cantidad: 1
   unidad: "barra"
+  seccion: "abarrotes"
 walmart_jabon_ropa:
-  cantidad: 3
+  cantidad: 2
   unidad: "botella"
+  seccion: "pasillo"
