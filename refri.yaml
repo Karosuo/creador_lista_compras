@@ -1,9 +1,6 @@
-Todo lo que reste en el refri y en las alacenas 
 # Todo lo que reste en el refri y en las alacenas
 # Esto será restado al total de articulos de la lista final
-
-refri:
-  - articulo: "barra_pan"
-    cantidad: 1
-  - articulo: "walmart_jabon_ropa"
-    cantidad: 3
+- articulo: "barra_pan"
+  cantidad: 1
+- articulo: "walmart_jabon_ropa"
+  cantidad: 3

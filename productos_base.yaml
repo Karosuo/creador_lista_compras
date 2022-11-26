@@ -1,8 +1,6 @@
 # Enlista los productos que necesitamos comprar pero no son parte de alguna receta en particular
 # Cantidad no especificada es igual a 1
-
-productos_varios:
-  - articulo: "barra_pan"
-    cantidad: 1
-  - articulo: "walmart_jabon_ropa"
-    cantidad: 3
+- articulo: "barra_pan"
+  cantidad: 1
+- articulo: "walmart_jabon_ropa"
+  cantidad: 3
