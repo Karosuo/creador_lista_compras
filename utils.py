@@ -22,10 +22,10 @@ def print_lista_de_compras(lista_compras):
     lista de compras : string
     """
     lista_compras_formateada = ""
-    for articulo,detalles in lista_compras:
+    for articulo,detalles in lista_compras.items():
         cantidad = detalles["cantidad"]
-        unidad = detalles["unidad"]
-        f_unidad = "{!s}s".format(unidad) if (unidad > 1) else unidad        
+        unidad = detalles.get("unidad", "pieza")
+        f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
 
         lista_compras_formateada = lista_compras_formateada + "{!s} {!s} de {!s}\n".format(
             cantidad, f_unidad, articulo
@@ -84,9 +84,6 @@ def resta_listas(lista_A, lista_B):
     -------
     lista_A con las cantidades de lista_B restadas: dict     
     """
-    # import pdb
-    # pdb.set_trace()
-
     lista_restada = dict(lista_A)
     for articulo, detalles in lista_restada.items():
         if lista_B.get(articulo):
