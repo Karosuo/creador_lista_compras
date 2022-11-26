@@ -1,117 +1,124 @@
 # Todas las recetas que se van a parsear para inculirse en la lista de compras
 sandwich_pollo:
   nombre: "Sandwich the pollo"
-  pan:
-    cantidad: 1
-    unidad: "barra"
-  aguacate:
-    cantidad: 1
-    unidad: bolsa
-  pollo:
-    cantidad: 1
-    unidad: "charola"
-  espinaca:
-    cantidad: 1
-    unidad: "bolsa_chica"
-  walmart_salsa_chipotle:
-    cantidad: 1
-    unidad: "lata"
+  ingredientes:
+    pan:
+      cantidad: 1
+      unidad: "barra"
+    aguacate:
+      cantidad: 1
+      unidad: bolsa
+    pollo:
+      cantidad: 1
+      unidad: "charola"
+    espinaca:
+      cantidad: 1
+      unidad: "bolsa_chica"
+    walmart_salsa_chipotle:
+      cantidad: 1
+      unidad: "lata"
   cantidad: 2
 
 cesar_con_pollo:
   nombre: "Caesar con pollo"
-  pollo:
-    cantidad: 1
-    unidad: "charola"
-  lechuga:
-    cantidad: 1
-  crutones:
-    cantidad: 1
-    unidad: "bolsa"
-  queso_parmesano:
-    cantidad: 1
-    unidad: "bote"
-  espinaca:
-    cantidad: 1
-    unidad: "bolsa_chica"
-  aderezo_ranch:
-    cantidad: 1
-    unidad: "bote"
+  ingredientes:
+    pollo:
+      cantidad: 1
+      unidad: "charola"
+    lechuga:
+      cantidad: 1
+    crutones:
+      cantidad: 1
+      unidad: "bolsa"
+    queso_parmesano:
+      cantidad: 1
+      unidad: "bote"
+    espinaca:
+      cantidad: 1
+      unidad: "bolsa_chica"
+    aderezo_ranch:
+      cantidad: 1
+      unidad: "bote"
   cantidad: 2
 
 lentejas:
   nombre: "Lentejas"
-  lenteja:
-    cantidad: 1
-    unidad: "bolsa"
-  laurel:
-    cantidad: 1
-  zanahoria:
-    cantidad: 1
-  cilantro:
-    cantidad: 1
-    unidad: "manojo"
+  ingredientes:
+    lenteja:
+      cantidad: 1
+      unidad: "bolsa"
+    laurel:
+      cantidad: 1
+    zanahoria:
+      cantidad: 1
+    cilantro:
+      cantidad: 1
+      unidad: "manojo"
   cantidad: 2
 
 sofrito:
   nombre: "Sofrito"
-  tocino:
-    cantidad: 125
-    unidad: "gramo"
-  cebolla:
-    cantidad: 1
-  ajo:
-    cantidad: 2
-    unidad: "diente"
-  tomate:
-    cantidad: 3
-  serrano:
-    cantidad: 1
-  cubito_de_pollo:
-    cantidad: 1
-    unidad: "porcion"
+  ingredientes:
+    tocino:
+      cantidad: 125
+      unidad: "gramo"
+    cebolla:
+      cantidad: 1
+    ajo:
+      cantidad: 2
+      unidad: "diente"
+    tomate:
+      cantidad: 3
+    serrano:
+      cantidad: 1
+    cubito_de_pollo:
+      cantidad: 1
+      unidad: "porcion"
   cantidad: 2
 
 picadillo:
   nombre: "Picadillo"
-  tomate:
-    cantidad: 5
-  zanahoria:
-    cantidad: 1
-  papa:
-    cantidad: 1
-  chicharos:
-    cantidad: 0.5
-    unidad: "taza"
-  ajo:
-    cantidad: 1
-    unidad: "diente"
+  ingredientes:
+    tomate:
+      cantidad: 5
+    zanahoria:
+      cantidad: 1
+    papa:
+      cantidad: 1
+    chicharos:
+      cantidad: 0.5
+      unidad: "taza"
+    ajo:
+      cantidad: 1
+      unidad: "diente"
   cantidad: 2
 
 salsa_para_picadillo:
   nombre: "Salsa para Picadillo Normal"
-  tomate:
-    cantidad: 1
-  ajo:
-    cantidad: 1
-    unidad: "diente" 
-  cebolla:
-    cantidad: 0.5
-  chile_ancho:
-    cantidad: 1
-  chile_chipotle:
-    cantidad: 1
+  ingredientes:
+    tomate:
+      cantidad: 1
+    ajo:
+      cantidad: 1
+      unidad: "diente" 
+    cebolla:
+      cantidad: 0.5
+    chile_ancho:
+      cantidad: 1
+    chile_chipotle:
+      cantidad: 1
   cantidad: 2
 
 caldo_de_pollo:
   nombre: "Caldo de pollo"
-  pollo:
-    cantidad: 1
-    unidad: "charola"
-  papa:
-    cantidad: 2
-  cebolla:
-    cantidad: 0.5
-  serrano:
-    cantidad: 1
+  ingredientes:
+    pollo:
+      cantidad: 1
+      unidad: "charola"
+    papa:
+      cantidad: 2
+    cebolla:
+      cantidad: 0.5
+    serrano:
+      cantidad: 1
   cantidad: 2
