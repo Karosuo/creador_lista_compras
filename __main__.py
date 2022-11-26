@@ -25,7 +25,7 @@ lista_articulos_completos = suma_listas(productos_base, suma_recetas)
 lista_de_compras = resta_listas(lista_articulos_completos, articulos_refri)
 
 print("\n\t...Generador de lista de compras...\n")
-print("Suma las articulos de las recetas.yaml con los de productos_base.yaml y le resta lo que hay en el refri.yaml\n")
+print("Suma los articulos de las recetas.yaml con los de productos_base.yaml y le resta lo que hay en el refri.yaml\n")
 print("Lista de compras:\n{!s}".format(
     print_lista_de_compras(lista_de_compras)
 ))
