@@ -1,0 +1,14 @@
+# Todas las recetas que se van a parsear para inculirse en la lista de compras
+recetas:
+  nombre: "Sandwich the pollo"
+    - ingrediente: "barra_pan"
+      cantidad: 1
+    - ingrediente: "bolsa_aguacate"
+      cantidad: 1
+    - ingrediente: "charola_pollo"
+      cantidad: 1
+    - ingrediente: "bolsa_espinacas_ch"
+      cantidad: 1
+    - ingrediente: "walmart_salsa_chipotle"
+      cantidad: 2
+  - cantidad: 2
