@@ -85,14 +85,9 @@ def suma_ingredientes_recetas(lista_recetas):
     Parameters
     ----------
     lista_recetas : list
-        Lista de diccionarios con el formato
-        - nombre: ""
-          ingredientes:
-          - nombre: ""
-            cantidad: n
-          cantidad: n
-        Que serán mezclados, todos los ingredientes con el mismo nombre, se sumarán sus cantidades y se multiplicarán por la cantidad
-        indicada de recetas
+        Lista de diccionarios con el formato de recetas.yaml
+        Que serán mezclados, todos los ingredientes con el mismo nombre, se sumarán sus cantidades
+        y se multiplicarán por la cantidad indicada de recetas
             
     Returns
     -------
