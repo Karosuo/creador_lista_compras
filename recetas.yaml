@@ -1,74 +1,117 @@
 # Todas las recetas que se van a parsear para inculirse en la lista de compras
 - nombre: "Sandwich the pollo"
   ingredientes:
-  - nombre: "barra_pan"  
+  - nombre: "pan"
     cantidad: 1
-  - nombre: "bolsa_aguacate"  
+    unidad: "barra"
+  - nombre: "aguacate"
     cantidad: 1
-  - nombre: "charola_pollo"  
+    unidad: bolsa
+  - nombre: "pollo"
     cantidad: 1
-  - nombre: "bolsa_espinacas_ch"  
+    unidad: "charola"
+  - nombre: "espinaca"
     cantidad: 1
-  - nombre: "walmart_salsa_chipotle"  
+    unidad: "bolsa_chica"
+  - nombre: "walmart_salsa_chipotle"
     cantidad: 1
+    unidad: "lata"
   cantidad: 2
 
 - nombre: "Caesar con pollo"
   ingredientes:
-  - nombre: "charola_pollo"  
+  - nombre: "pollo"
     cantidad: 1
-  - nombre: "lechuga"  
+    unidad: "charola"
+  - nombre: "lechuga"
     cantidad: 1
   - nombre: "crutones"
     cantidad: 1
+    unidad: "bolsa"
   - nombre: "queso_parmesano"
     cantidad: 1
-  - nombre: "bolsa_espinacas_ch"  
+    unidad: "bote"
+  - nombre: "espinaca"
     cantidad: 1
-  - nombre: "aderezo_ranch"  
+    unidad: "bolsa_chica"
+  - nombre: "aderezo_ranch"
     cantidad: 1
+    unidad: "bote"
   cantidad: 2
 
 - nombre: "Lentejas"
   ingredientes:
-  - nombre: "lentejas"  
+  - nombre: "lenteja"
     cantidad: 1
-  - nombre: "laurel"  
+    unidad: "bolsa"
+  - nombre: "laurel"
     cantidad: 1
-  - nombre: "zanahorias"
+  - nombre: "zanahoria"
     cantidad: 1
   - nombre: "cilantro"
     cantidad: 1
+    unidad: "manojo"
   cantidad: 2
 
 - nombre: "Sofrito"
   ingredientes:
-  - nombre: "charola_pollo"  
+  - nombre: "tocino"
+    cantidad: 125
+    unidad: "gramo"
+  - nombre: "cebolla"
     cantidad: 1
-  - nombre: "lechuga"  
+  - nombre: "ajo"
+    cantidad: 2
+    unidad: "diente"
+  - nombre: "tomate"
+    cantidad: 3
+  - nombre: "serrano"
     cantidad: 1
-  - nombre: "crutones"
+  - nombre: "cubito_de_pollo"
     cantidad: 1
-  - nombre: "queso_parmesano"
+    unidad: "porcion"
+  cantidad: 2
+
+- nombre: "Picadillo"
+  ingredientes:
+  - nombre: "tomate"
+    cantidad: 5
+  - nombre: "zanahoria"
     cantidad: 1
-  - nombre: "bolsa_espinacas_ch"  
+  - nombre: "papa"
     cantidad: 1
-  - nombre: "aderezo_ranch"  
+  - nombre: "chicharos"
+    cantidad: 0.5
+    unidad: "taza"
+  - nombre: "ajo"
+    cantidad: 1
+    unidad: "diente"
+  cantidad: 2
+
+- nombre: "Salsa para Picadillo Normal"
+  ingredientes:
+  - nombre: "tomate"
+    cantidad: 1
+  - nombre: "ajo"
+    cantidad: 1
+    unidad: "diente" 
+  - nombre: "cebolla"
+    cantidad: 0.5
+  - nombre: "chile_ancho"
+    cantidad: 1
+  - nombre: "chile_chipotle"
     cantidad: 1
   cantidad: 2
 
-- nombre: "Caesar con pollo"
+- nombre: "Caldo de pollo"
   ingredientes:
-  - nombre: "charola_pollo"  
+  - nombre: "pollo"
     cantidad: 1
-  - nombre: "lechuga"  
-    cantidad: 1
-  - nombre: "crutones"
-    cantidad: 1
-  - nombre: "queso_parmesano"
-    cantidad: 1
-  - nombre: "bolsa_espinacas_ch"  
-    cantidad: 1
-  - nombre: "aderezo_ranch"  
+    unidad: "charola"
+  - nombre: "papa"
+    cantidad: 2
+  - nombre: "cebolla"
+    cantidad: 0.5
+  - nombre: "serrano"
     cantidad: 1
   cantidad: 2

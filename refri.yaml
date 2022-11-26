@@ -1,6 +1,8 @@
 # Todo lo que reste en el refri y en las alacenas
 # Esto será restado al total de articulos de la lista final
-- articulo: "barra_pan"
+- articulo: "pan"
   cantidad: 1
+  unidad: "barra"
 - articulo: "walmart_jabon_ropa"
   cantidad: 3
+  unidad: "botella"

@@ -5,7 +5,7 @@ from os.path import abspath, join
 
 SRC_BASE_PATH = pathlib.Path(__file__).parent.resolve()
 
-def list_to_str(lista_compras):
+def print_lista_de_compras(lista_compras):
     """
     Parsea la lista recibida por parámetro y la convierte en una secuencia de strings
     divididas por saltos de linea con el siguiente formato}
@@ -100,7 +100,7 @@ def suma_ingredientes_recetas(lista_recetas):
         Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
         sumadas dependiendo de su aparición en las recetas    
     """
-    pass
+    return []
 
 def yaml_to_python(yaml_fp):
     """

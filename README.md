@@ -1,9 +1,17 @@
-# creador_lista_compras
-Un parseador básico de archivos yaml con el contenido de recetas de comida, lista de compras base y el contenido del refri, que dará como resultado:
-"lista de compras final = lista compras base + la suma de ingredientes en recetas - lo que hay en el refri"
+# Creador de lista de compras
+Un parseador de archivos yaml con el contenido de recetas de comida, lista de compras base y el contenido del refri, que dará como resultado:
+**"lista de compras final = lista compras base + la suma de ingredientes en recetas - lo que hay en el refri"**
 
-## No hay unidades para los artículos
-Solo hay nombre de articulo y cantidad de articulos.
-Por ejemplo, si el artículo es *tomates*, entonces se implica que la cantidad *3* usa la unidad *piezas*, pero si el artículo dice *barra_pan*, se implica que es una bolsa de pan de barra.
+## No hay conversión de unidades para los artículos
+Los articulos tienen unidades, pero estas se usan solamente para que la impresión de la lista sea más amena para lectura humana.
+No hay conversión de las mismas de ningún tipo.
+Además, se implica que siempre que haya un artículo sin especificar la unidad, esta sería *piezas*
+Se espera que el ingreso de datos sea a consciencia de usar siempre la misma unidad para el mismo artículo en todos los archivos yaml.
 
-No tengo idea si después agregaré unidades compuestas, estilo 15 tomates son 1 kg de tomates, para eso una base de datos sería más eficiente
+Por ejemplo
+Puede haber muchas instancias de *tomates*, unas sin especificar *unidad*, otras especificando kilogramos y otras especificando piezas, este problema no está resuelto, solo se sumarían/restarían las cantidades de *tomates* y se usaría la *unidad* que se encuentre primero en la lista de recetas o de productos base, por lo que el resultado sería incorrecto.
+
+## Requerimientos de llenado de información
+Se implica que todos los nombres de artículos están escritos en singular, así como los nombres de las unidades
+
+No tengo idea si después agregaré unidades compuestas, estilo 15 tomates son 1 kg de tomates, para eso una base de datos sería más eficiente, pero por ahora esta implementación me es más que suficiente.

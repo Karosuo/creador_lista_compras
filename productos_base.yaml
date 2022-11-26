@@ -1,6 +1,8 @@
 # Enlista los productos que necesitamos comprar pero no son parte de alguna receta en particular
 # Cantidad no especificada es igual a 1
-- articulo: "barra_pan"
+- articulo: "pan"
   cantidad: 1
+  unidad: "barra"
 - articulo: "walmart_jabon_ropa"
   cantidad: 3
+  unidad: "botella"
