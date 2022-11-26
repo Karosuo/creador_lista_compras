@@ -1,5 +1,6 @@
 # Todas las recetas que se van a parsear para inculirse en la lista de compras
-nombre: "Sandwich the pollo"
+sandwich_pollo:
+  nombre: "Sandwich the pollo"
   pan:
     cantidad: 1
     unidad: "barra"
@@ -16,7 +17,9 @@ nombre: "Sandwich the pollo"
     cantidad: 1
     unidad: "lata"
   cantidad: 2
-nombre: "Caesar con pollo"
+
+cesar_con_pollo:
+  nombre: "Caesar con pollo"
   pollo:
     cantidad: 1
     unidad: "charola"
@@ -35,7 +38,9 @@ nombre: "Caesar con pollo"
     cantidad: 1
     unidad: "bote"
   cantidad: 2
-nombre: "Lentejas"
+
+lentejas:
+  nombre: "Lentejas"
   lenteja:
     cantidad: 1
     unidad: "bolsa"
@@ -47,7 +52,9 @@ nombre: "Lentejas"
     cantidad: 1
     unidad: "manojo"
   cantidad: 2
-nombre: "Sofrito"
+
+sofrito:
+  nombre: "Sofrito"
   tocino:
     cantidad: 125
     unidad: "gramo"
@@ -64,7 +71,9 @@ nombre: "Sofrito"
     cantidad: 1
     unidad: "porcion"
   cantidad: 2
-nombre: "Picadillo"
+
+picadillo:
+  nombre: "Picadillo"
   tomate:
     cantidad: 5
   zanahoria:
@@ -78,7 +87,9 @@ nombre: "Picadillo"
     cantidad: 1
     unidad: "diente"
   cantidad: 2
-nombre: "Salsa para Picadillo Normal"
+
+salsa_para_picadillo:
+  nombre: "Salsa para Picadillo Normal"
   tomate:
     cantidad: 1
   ajo:
@@ -91,7 +102,9 @@ nombre: "Salsa para Picadillo Normal"
   chile_chipotle:
     cantidad: 1
   cantidad: 2
-nombre: "Caldo de pollo"
+
+caldo_de_pollo:
+  nombre: "Caldo de pollo"
   pollo:
     cantidad: 1
     unidad: "charola"

@@ -13,7 +13,7 @@ from utils import (
     get_recetas,
     suma_listas,
     resta_listas,
-    list_to_str
+    print_lista_de_compras
 )
 
 productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))

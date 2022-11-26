@@ -75,7 +75,7 @@ def get_recetas():
         Lista de los nombres de todas las recetas
     """
     recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
-    return [item["nombre"] for item in recetas]
+    return [item["nombre"] for _,item in recetas.items()]    
 
 def suma_ingredientes_recetas(lista_recetas):
     """
@@ -95,7 +95,7 @@ def suma_ingredientes_recetas(lista_recetas):
         Lista con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
         sumadas dependiendo de su aparición en las recetas    
     """
-    return []
+    pass
 
 def yaml_to_python(yaml_fp):
     """
