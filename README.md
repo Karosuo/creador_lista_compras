@@ -2,17 +2,18 @@
 Un parseador de archivos yaml con el contenido de recetas de comida, lista de compras base y el contenido del refri, que dará como resultado:
 **"lista de compras final = lista compras base + la suma de ingredientes en recetas - lo que hay en el refri"**
 
-Es decir algo como lo siguiente
-  -- abarrotes --
-2 barras de pan
-2 botes de queso_parmesano
-2 botes de aderezo_ranch
-2 bolsas de lenteja
-2 porcions de cubito_de_pollo
-2 piezas de chile_chipotle
-  -- carnes --
-6 charolas de pollo
-250 gramos de tocino
+Es decir algo como lo siguiente:  
+
+  -- abarrotes --  
+2 barras de pan  
+2 botes de queso_parmesano  
+2 botes de aderezo_ranch  
+2 bolsas de lenteja  
+2 porcions de cubito_de_pollo  
+2 piezas de chile_chipotle  
+  -- carnes --  
+6 charolas de pollo  
+250 gramos de tocino  
 
 ## No hay conversión de unidades para los artículos
 Los articulos tienen unidades, pero estas se usan solamente para que la impresión de la lista sea más amena para lectura humana.
