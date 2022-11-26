@@ -113,14 +113,15 @@ def suma_ingredientes_recetas(lista_recetas):
 
     Basada en la respuesta de ospahiu en https://stackoverflow.com/questions/39000681/find-the-sum-of-values-within-the-values-of-a-nested-dictionary
     """
-    import pdb
     suma_recetas = {}
     for receta, propiedades in lista_recetas.items():
         for ingrediente, detalles in propiedades["ingredientes"].items():
             suma_sin_acumulador = (detalles["cantidad"] * propiedades["cantidad"])
             if not suma_recetas.get(ingrediente):
-                suma_recetas[ingrediente] = detalles                        
-            suma_recetas[ingrediente]["cantidad"] = suma_recetas[ingrediente].get("cantidad", 0) + (detalles["cantidad"] * propiedades["cantidad"])
+                suma_recetas[ingrediente] = detalles
+                suma_recetas[ingrediente]["cantidad"] = suma_sin_acumulador
+            else:
+                suma_recetas[ingrediente]["cantidad"] = suma_recetas[ingrediente].get("cantidad", 0) + suma_sin_acumulador
     return suma_recetas
 
 def yaml_to_python(yaml_fp):
