@@ -24,7 +24,9 @@ def suma_listas(*argv):
         for c_list in argv:
             if not lista_mezclada_sumada.get(articulo):
                 lista_mezclada_sumada[articulo] = lista_mezclada[articulo]
-            lista_mezclada_sumada[articulo]["cantidad"] = lista_mezclada_sumada[articulo].get("cantidad", 0) + c_list[articulo]["cantidad"]
+                lista_mezclada_sumada[articulo]["cantidad"] = c_list[articulo]["cantidad"]
+            else:
+                lista_mezclada_sumada[articulo]["cantidad"] = lista_mezclada_sumada[articulo].get("cantidad", 0) + c_list[articulo]["cantidad"]
 
     return lista_mezclada_sumada
 
