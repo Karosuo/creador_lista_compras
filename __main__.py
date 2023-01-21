@@ -20,15 +20,12 @@
 from argparse import RawTextHelpFormatter, ArgumentParser
 import text_descriptions as tdesc
 from utils import (
-    yaml_to_python,
-    get_src_abspath,
-    suma_ingredientes_recetas,
-    mezcla_listas,
-    suma_listas,
-    resta_listas,
     print_lista_de_compras,
     subcommand,
     arguments
+)
+from app_funcs import (
+    genera_lista_compras
 )
 
 # Create parser for cli params and the subparser for subcommands
@@ -51,12 +48,7 @@ args = parser.parse_args()
 if hasattr(args, "func"):
     args.func()    
 else:
-    productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
-    articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))
-    lista_recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
-    suma_recetas = suma_ingredientes_recetas(lista_recetas)
-    lista_articulos_completos = suma_listas(productos_base, suma_recetas)
-    lista_de_compras = resta_listas(lista_articulos_completos, articulos_refri)
+    lista_de_compras = genera_lista_compras()
 
     print(tdesc.exec_title)
     print(tdesc.exec_desc)
