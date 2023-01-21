@@ -1,0 +1,50 @@
+# refri.yaml
+# Todo lo que exista fisicamente en el refri y en las alacenas
+# Esto será restado al total de articulos de la lista final
+# 
+# Para agregar articulos a refri.yaml el formato es el siguiente: 
+walmart_jabon_ropa:
+  cantidad: 3
+  unidad: "botella"
+  seccion: "pasillo"
+
+# productos_base.yaml
+# Enlista los productos que necesitamos comprar pero no son parte de alguna receta en particular
+# Cantidad no especificada es igual a 1.0
+# 
+# Para agregar articulos a productos_base.yaml el formato es el mismo que refri.yaml 
+jabon_de_manos:
+  cantidad: 1.0
+  unidad: "botella"
+  seccion: "higiene"
+
+# ----------------------------
+
+# recetas.yaml
+# Todas las recetas que se van a parsear para inculirse en la lista de compras
+
+# La siguiente receta es un ejemplo del formato para agregarlas a este archivo
+sandwich_pollo:
+  nombre: "Sandwich the pollo"
+  ingredientes:
+    pan:
+      cantidad: 0.6
+      unidad: "barra"
+      seccion: "pasillo"
+    aguacate:
+      cantidad: 1.0
+      unidad: bolsa
+      seccion: "verduras"
+    pollo:
+      cantidad: 0.18
+      unidad: "charola"
+      seccion: "carnes"
+    espinaca:
+      cantidad: 0.2
+      unidad: "bolsa_chica"
+      seccion: "verduras"
+    walmart_salsa_chipotle:
+      cantidad: 1.0
+      unidad: "lata"
+      seccion: "pasillo"
+  cantidad: 2
