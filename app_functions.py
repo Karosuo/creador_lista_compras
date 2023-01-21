@@ -121,8 +121,7 @@ def print_lista_de_compras(lista_compras):
     ultima_seccion = ""
     for articulo,detalles in lista_compras_ordenada.items():
         cantidad = float(detalles["cantidad"])
-        unidad = detalles.get("unidad", "pieza")
-        f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
+        unidad = detalles.get("unidad", "pieza")        
 
         if cantidad >= 1:
             if detalles["seccion"] != ultima_seccion:
@@ -130,7 +129,8 @@ def print_lista_de_compras(lista_compras):
                 ultima_seccion = detalles["seccion"]
             else:
                 c_seccion = ""
-
+            
+            f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad
             lista_compras_formateada = lista_compras_formateada + "{!s}{!s} {!s} de {!s}\n".format(
                 c_seccion, weird_round(cantidad), f_unidad, articulo
             )
