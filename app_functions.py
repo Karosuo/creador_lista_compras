@@ -1,6 +1,5 @@
 from utils import (
-    yaml_to_python,
-    suma_ingredientes_recetas,
+    yaml_to_python,    
     suma_listas,
     resta_listas,
     get_src_abspath
@@ -9,6 +8,37 @@ from utils import (
 PRODUCTOS_BASE_PATH = "datamodels/productos_base.yaml"
 RECETAS_PATH = "datamodels/recetas.yaml"
 REFRI_PATH = "datamodels/refri.yaml"
+
+def suma_ingredientes_recetas(lista_recetas):
+    """
+    Suma los ingredientes de todas las recetas y los pone en una lista de diccionarios con el mismo
+    formato que tienen refri.yaml y productos_base.yaml
+    
+    Parameters
+    ----------
+    lista_recetas : dictionary
+        diccionario de diccionarios con el formato de recetas.yaml
+        Que serán mezclados, todos los ingredientes con el mismo nombre, se sumarán sus cantidades
+        y se multiplicarán por la cantidad indicada de recetas
+            
+    Returns
+    -------
+    ingredientes y la suma de sus cantidades : dict
+        Dict con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
+        sumadas dependiendo de su aparición en las recetas    
+
+    Basada en la respuesta de ospahiu en https://stackoverflow.com/questions/39000681/find-the-sum-of-values-within-the-values-of-a-nested-dictionary
+    """
+    suma_recetas = {}
+    for receta, propiedades in lista_recetas.items():
+        for ingrediente, detalles in propiedades["ingredientes"].items():
+            suma_sin_acumulador = (float(detalles["cantidad"]) * float(propiedades["cantidad"]))
+            if not suma_recetas.get(ingrediente):
+                suma_recetas[ingrediente] = dict(detalles)
+                suma_recetas[ingrediente]["cantidad"] = suma_sin_acumulador
+            else:
+                suma_recetas[ingrediente]["cantidad"] = float(suma_recetas[ingrediente].get("cantidad", 0)) + suma_sin_acumulador
+    return suma_recetas
 
 def genera_lista_compras():
     productos_base = yaml_to_python(get_src_abspath(PRODUCTOS_BASE_PATH))

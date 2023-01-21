@@ -5,42 +5,6 @@ from os.path import abspath, join
 
 SRC_BASE_PATH = pathlib.Path(__file__).parent.resolve()
 
-def print_lista_de_compras(lista_compras):
-    """
-    Parsea la lista recibida por parámetro y la convierte en una secuencia de strings
-    divididas por saltos de linea con el siguiente formato}
-        cantidad_articulos, nombre_articulo
-
-    
-    Parameters
-    ----------
-    lista_compras : list
-        Lista de articulos con sus cantidades (lista de diccionarios), con el formato de refri.yaml        
-            
-    Returns
-    -------
-    lista de compras : string
-    """
-    lista_compras_formateada = ""
-    lista_compras_ordenada = sorted(lista_compras.items(), key=lambda x: x[1]["seccion"])
-    lista_compras_ordenada = dict(lista_compras_ordenada)
-    ultima_seccion = ""
-    for articulo,detalles in lista_compras_ordenada.items():
-        cantidad = detalles["cantidad"]
-        unidad = detalles.get("unidad", "pieza")
-        f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
-
-        if detalles["seccion"] != ultima_seccion:
-            c_seccion = "  -- {!s} --\n".format(detalles["seccion"])
-            ultima_seccion = detalles["seccion"]
-        else:
-            c_seccion = ""
-
-        lista_compras_formateada = lista_compras_formateada + "{!s}{!s} {!s} de {!s}\n".format(
-            c_seccion, cantidad, f_unidad, articulo
-        )
-    return lista_compras_formateada
-
 def suma_listas(*argv):
     """
     Mezcla todas las listas que se pasen como parámetro
@@ -131,37 +95,6 @@ def mezcla_listas(*argv):
         lista_mezclada = lista_mezclada | c_list
     return lista_mezclada
 
-def suma_ingredientes_recetas(lista_recetas):
-    """
-    Suma los ingredientes de todas las recetas y los pone en una lista de diccionarios con el mismo
-    formato que tienen refri.yaml y productos_base.yaml
-    
-    Parameters
-    ----------
-    lista_recetas : dictionary
-        diccionario de diccionarios con el formato de recetas.yaml
-        Que serán mezclados, todos los ingredientes con el mismo nombre, se sumarán sus cantidades
-        y se multiplicarán por la cantidad indicada de recetas
-            
-    Returns
-    -------
-    ingredientes y la suma de sus cantidades : dict
-        Dict con el mismo formato que refri.yaml y productos_base.yaml con todos los ingredientes y sus cantidades
-        sumadas dependiendo de su aparición en las recetas    
-
-    Basada en la respuesta de ospahiu en https://stackoverflow.com/questions/39000681/find-the-sum-of-values-within-the-values-of-a-nested-dictionary
-    """
-    suma_recetas = {}
-    for receta, propiedades in lista_recetas.items():
-        for ingrediente, detalles in propiedades["ingredientes"].items():
-            suma_sin_acumulador = (detalles["cantidad"] * propiedades["cantidad"])
-            if not suma_recetas.get(ingrediente):
-                suma_recetas[ingrediente] = dict(detalles)
-                suma_recetas[ingrediente]["cantidad"] = suma_sin_acumulador
-            else:
-                suma_recetas[ingrediente]["cantidad"] = suma_recetas[ingrediente].get("cantidad", 0) + suma_sin_acumulador
-    return suma_recetas
-
 def yaml_to_python(yaml_fp):
     """
     Lee un archivo yaml y lo parsea usando el paquete 'pyyaml'    
@@ -204,3 +137,53 @@ def get_src_abspath(yaml_name):
         No se revisa si la ruta es correcta o no
     """
     return abspath(join(SRC_BASE_PATH, yaml_name))
+
+def subcommand(args=[], parent=None, subcmd_desc=""):
+    '''
+    Abstraction of a subparser to use as a decorator
+    Based on https://mike.depalatis.net/blog/simplifying-argparse.html
+    
+    Parameters
+    ----------
+    args : tuple (or list)
+        Espera una tupla (o lista de 2 elementos), el primero es una lista y el segundo un diccionaro
+        Esto para poder pasar un modelo de parameteros como *args,**kargs
+    parent: subparser
+        Subparser generado por ArgumentParser().add_subparsers()
+    subcmd_desc: string
+        El texto que se va a mostrar como descripción en la ayuda para el sub comando en cuestión
+            
+    Returns
+    -------
+    function reference
+        La referencia a la función interna "decorator"            
+    '''
+    def decorator(func):
+        parser = parent.add_parser(name=func.__name__, help=subcmd_desc)
+        for arg in args:
+            parser.add_argument(*arg[0], **arg[1])
+        parser.set_defaults(func=func)
+    return decorator
+
+def arguments(*name_or_flags, **kwargs):    
+    '''
+    Convierte el formato *args,**kargs en el formato ([*name_or_flags], kwargs) necesario
+    para la función subcommand()
+
+    Usage:
+        @subcommand([argument("-d", help="Debug mode", action="store_true")])
+        def test(args):
+            print(args)
+    Based on https://mike.depalatis.net/blog/simplifying-argparse.html
+    
+    Parameters
+    ----------
+    name_or_flags : list        
+    kwargs: dict        
+            
+    Returns
+    -------
+        Tuple
+            Mismos valores que se recibieron pero desempacados en una tupla que tenga (*args, **kwargs)        
+    '''
+    return ([*name_or_flags], kwargs)
