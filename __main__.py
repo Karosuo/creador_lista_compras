@@ -21,11 +21,14 @@ from argparse import RawTextHelpFormatter, ArgumentParser
 import text_descriptions as tdesc
 from utils import (    
     subcommand,
-    arguments
+    arguments,
+    python_to_yaml
 )
 from app_functions import (
     genera_lista_compras,
-    print_lista_de_compras
+    print_lista_de_compras,
+    genera_lista_refri,
+    get_refri_path
 )
 
 # Create parser for cli params and the subparser for subcommands
@@ -39,7 +42,10 @@ subparsers = parser.add_subparsers(description=tdesc.subcommands_desc)
 
 @subcommand(parent=subparsers, subcmd_desc=tdesc.main_refri_checklist_help)
 def refri_checklist():
-    print("\nJust a dummy function for the subcommand...\n")
+    print("\nGenerando checklist refri...")
+    lista_completa = genera_lista_refri()
+    python_to_yaml(yaml_fp=get_refri_path(), data_object=lista_completa)    
+    print("\n{!s} modificado existosamente.\n".format(get_refri_path()))
 
 # Parse arguments and execute the subcommands if any
 args = parser.parse_args()

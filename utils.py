@@ -95,6 +95,32 @@ def mezcla_listas(*argv):
         lista_mezclada = lista_mezclada | c_list
     return lista_mezclada
 
+def python_to_yaml(yaml_fp, data_object):
+    """
+    Escribe una lista de diccionarios python en un archivo de texto en formato YAML
+    en el nombre y path del archivo pasado por parámetro
+
+    Es un wrapper de la función safe_dump() de PyYaml
+    
+    Para más detalles, ver https://pyyaml.org/wiki/PyYAMLDocumentation 
+    ----------
+    yaml_fp : string
+        El filepath del archivo que será escrito en formato yaml        
+    
+    data_object : 
+        Datos que se van a convertir a YAML en el archivo
+
+    Returns
+    -------
+        No return
+
+    Exception
+        (FileNotFoundError) If file doesn't exist    
+    """
+    parsed_yaml = {}
+    with open(yaml_fp, 'w') as yaml_file:
+        yaml.dump(data=data_object, stream=yaml_file, encoding="utf-8", indent=2)
+
 def yaml_to_python(yaml_fp):
     """
     Lee un archivo yaml y lo parsea usando el paquete 'pyyaml'    
