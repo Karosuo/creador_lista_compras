@@ -19,13 +19,13 @@
 
 from argparse import RawTextHelpFormatter, ArgumentParser
 import text_descriptions as tdesc
-from utils import (
-    print_lista_de_compras,
+from utils import (    
     subcommand,
     arguments
 )
 from app_functions import (
-    genera_lista_compras
+    genera_lista_compras,
+    print_lista_de_compras
 )
 
 # Create parser for cli params and the subparser for subcommands
