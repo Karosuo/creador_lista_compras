@@ -61,8 +61,7 @@ def resta_listas(lista_A, lista_B):
     for articulo, detalles in lista_restada.items():
         if lista_B.get(articulo):
             restaAB = float(lista_restada[articulo]["cantidad"]) - float(lista_B[articulo]["cantidad"])
-            if restaAB > 0:                
-                lista_restada[articulo]["cantidad"] = restaAB
+            lista_restada[articulo]["cantidad"] = restaAB                
     return lista_restada
 
    
