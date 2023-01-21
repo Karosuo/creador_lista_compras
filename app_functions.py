@@ -125,3 +125,29 @@ def print_lista_de_compras(lista_compras):
                 c_seccion, cantidad, f_unidad, articulo
             )
     return lista_compras_formateada
+
+def genera_lista_refri():
+    """
+    Genera la lista que terminará en refri.yaml, sumando todos los productos en productos_base.yaml y recetas.yaml
+    
+    DEPENDECY
+    ---------
+    yaml_to_python(yaml_fp)
+    get_src_abspath()
+    suma_ingredientes_recetas()
+    suma_listas()    
+
+    Parameters
+    ----------
+    None 
+
+    Returns
+    -------
+    Lista de productos : list
+        Lista de diccionarios con formato de refri.yaml
+        productos_base + productos en recetas
+    """
+    productos_base = yaml_to_python(get_src_abspath(PRODUCTOS_BASE_PATH))    
+    lista_recetas = yaml_to_python(get_src_abspath(RECETAS_PATH))
+    suma_recetas = suma_ingredientes_recetas(lista_recetas)
+    return suma_listas(productos_base, suma_recetas)
