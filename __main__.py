@@ -1,5 +1,10 @@
 #!/usr/bin/env/ python
 
+# Author: Rafael Karosuo
+
+# Subcomandos basado en la solución de Mike
+# https://gist.github.com/mivade/384c2c41c3a29c637cb6c603d4197f9f
+
 # Parsea productos_base.yaml y lo guarda como productos_base
 # Parsea refri.yaml y lo guarda como articulos_refri
 # Parsea recetas.yaml y lo guarda como lista_recetas
@@ -11,8 +16,8 @@
 # Usage
 # activacate venv '\list_gen_venv\Scripts\activate' (or wherver the venv was created)
 # run with 'python generador_lista_compras', where generador_lista_compras is the parent directory
-import argparse
-from argparse import RawTextHelpFormatter
+
+from argparse import RawTextHelpFormatter, ArgumentParser
 import text_descriptions as tdesc
 from utils import (
     yaml_to_python,
@@ -21,26 +26,40 @@ from utils import (
     mezcla_listas,
     suma_listas,
     resta_listas,
-    print_lista_de_compras
+    print_lista_de_compras,
+    subcommand,
+    arguments
 )
 
-parser = argparse.ArgumentParser(
-    prog = "Generador de Recetas", 
+# Create parser for cli params and the subparser for subcommands
+parser = ArgumentParser(
+    prog = tdesc.help_prog, 
     description = tdesc.help_description,
-    epilog = "Software Libre, GPL3",
+    epilog = tdesc.help_epilog,
     formatter_class=RawTextHelpFormatter,  
 )
+subparsers = parser.add_subparsers(description=tdesc.subcommands_desc)
+
+@subcommand(parent=subparsers, subcmd_desc=tdesc.main_refri_checklist_help)
+def refri_checklist():
+    print("\nJust a dummy function for the subcommand...\n")
+
+# Parse arguments and execute the subcommands if any
 args = parser.parse_args()
 
-productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
-articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))
-lista_recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
-suma_recetas = suma_ingredientes_recetas(lista_recetas)
-lista_articulos_completos = suma_listas(productos_base, suma_recetas)
-lista_de_compras = resta_listas(lista_articulos_completos, articulos_refri)
+# If no commands, just print the list
+if hasattr(args, "func"):
+    args.func()    
+else:
+    productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
+    articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))
+    lista_recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
+    suma_recetas = suma_ingredientes_recetas(lista_recetas)
+    lista_articulos_completos = suma_listas(productos_base, suma_recetas)
+    lista_de_compras = resta_listas(lista_articulos_completos, articulos_refri)
 
-print(tdesc.exec_title)
-print(tdesc.exec_desc)
-print("Lista de compras:\n{!s}".format(
-    print_lista_de_compras(lista_de_compras)
-))
+    print(tdesc.exec_title)
+    print(tdesc.exec_desc)
+    print("Lista de compras:\n{!s}".format(
+        print_lista_de_compras(lista_de_compras)
+    ))

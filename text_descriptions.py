@@ -1,14 +1,25 @@
 # Help text
 help_description = '''
-Suma las cantidades de recetas y las convierte en una lista de diccionarios (y las guarda en suma_recetas)\n
 Obtiene la lista de compras como:\n
 lista_compras = productos_base + suma_recetas - articulos_refri\n
 \n
-Los archivos yaml necesitan estar en la raiz del directorio 
-y necesitan tener los siguientes nombres:\n
-"recetas.yaml", "refri.yaml" and "productos_base.yaml"\n
-Vea: "formato_contenido.yaml" para saber el formato con el que se puede llenar dichos archivos
-\n
+Dichos elementos están representados por archivos yaml, que deben tener los siguientes nombres:\n
+"productos_base.yaml", "recetas.yaml" y "refri.yaml" respectivamente\n
+* Los productos_base son aquellos que usualmente se agregan a la lista de compras encima de las recetas, como limpieza para el hogar o similar
+* El contenido del refri, representa lo que ya no se necesita comprar de la lista original
+Vea: "formato_contenido.yaml" para saber el formato con el que se puede llenar dichos archivos\n
+'''
+help_epilog = "Software Libre, GPL3"
+help_prog = "python generador_lista_compras"
+subcommands_desc = "Externaliza una API de comandos para acciones específicas"
+
+# Refri checklist generator subparser
+main_refri_checklist_help = '''
+Genera lo que debería haber en el refri y lo pone en refri.yaml\n
+Es decir:\n
+Borra todo lo que haya en refri.yaml, combina los productos de productos_base.yaml y
+recetas.yaml y los pega en refri.yaml, usando el formato esperado para refri.yaml.\n
+Toma en cuenta la cantidad de instancias de recetas y no redondea las cantidades combinadas
 '''
 
 # Execution text
