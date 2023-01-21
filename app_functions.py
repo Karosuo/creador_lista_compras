@@ -9,6 +9,15 @@ PRODUCTOS_BASE_PATH = "datamodels/productos_base.yaml"
 RECETAS_PATH = "datamodels/recetas.yaml"
 REFRI_PATH = "datamodels/refri.yaml"
 
+def get_recetas_path():
+    return get_src_abspath(RECETAS_PATH)
+
+def get_productos_base_path():
+    return get_src_abspath(PRODUCTOS_BASE_PATH)
+
+def get_refri_path():
+    return get_src_abspath(REFRI_PATH)
+
 def suma_ingredientes_recetas(lista_recetas):
     """
     Suma los ingredientes de todas las recetas y los pone en una lista de diccionarios con el mismo
