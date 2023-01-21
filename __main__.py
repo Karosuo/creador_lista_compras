@@ -24,7 +24,7 @@ from utils import (
     subcommand,
     arguments
 )
-from app_funcs import (
+from app_functions import (
     genera_lista_compras
 )
 

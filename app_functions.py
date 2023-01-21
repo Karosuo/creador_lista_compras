@@ -5,10 +5,15 @@ from utils import (
     resta_listas,
     get_src_abspath
 )
+
+PRODUCTOS_BASE_PATH = "datamodels/productos_base.yaml"
+RECETAS_PATH = "datamodels/recetas.yaml"
+REFRI_PATH = "datamodels/refri.yaml"
+
 def genera_lista_compras():
-    productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
-    articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))
-    lista_recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
+    productos_base = yaml_to_python(get_src_abspath(PRODUCTOS_BASE_PATH))
+    articulos_refri = yaml_to_python(get_src_abspath(REFRI_PATH))
+    lista_recetas = yaml_to_python(get_src_abspath(RECETAS_PATH))
     suma_recetas = suma_ingredientes_recetas(lista_recetas)
     lista_articulos_completos = suma_listas(productos_base, suma_recetas)    
     return resta_listas(lista_articulos_completos, articulos_refri)
@@ -30,5 +35,5 @@ def get_recetas():
     Lista de recetas : list
         Lista de los nombres de todas las recetas
     """
-    recetas = yaml_to_python(get_src_abspath("recetas.yaml"))
+    recetas = yaml_to_python(get_src_abspath(RECETAS_PATH))
     return [item["nombre"] for _,item in recetas.items()]    
