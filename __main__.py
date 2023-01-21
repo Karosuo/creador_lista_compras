@@ -6,6 +6,11 @@
 # Obtiene la lista de compras como
 # lista_compras = productos_base + suma_recetas - articulos_refri
 
+# Usage
+# activacate venv '\list_gen_venv\Scripts\activate' (or wherver the venv was created)
+# run with 'python generador_lista_compras', where generador_lista_compras is the parent directory
+import argparse
+from argparse import RawTextHelpFormatter
 from utils import (
     yaml_to_python,
     get_src_abspath,
@@ -16,6 +21,16 @@ from utils import (
     print_lista_de_compras
 )
 
+parser = argparse.ArgumentParser(
+    prog = "Generador de Recetas", 
+    description = '''
+    Suma las cantidades de recetas y las convierte en una lista de diccionarios (y las guarda en suma_recetas)\n
+    Obtiene la lista de compras como:\n
+    lista_compras = productos_base + suma_recetas - articulos_refri\n''',
+    epilog = "Software Libre, GPL3",
+    formatter_class=RawTextHelpFormatter,  
+)
+args = parser.parse_args()
 
 productos_base = yaml_to_python(get_src_abspath("productos_base.yaml"))
 articulos_refri = yaml_to_python(get_src_abspath("refri.yaml"))
