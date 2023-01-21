@@ -13,13 +13,17 @@ help_epilog = "Software Libre, GPL3"
 help_prog = "python generador_lista_compras"
 subcommands_desc = "Externaliza una API de comandos para acciones específicas"
 
-# Refri checklist generator subparser
+# generator subparser
 main_refri_checklist_help = '''
 Genera lo que debería haber en el refri y lo pone en refri.yaml\n
 Es decir:\n
 Borra todo lo que haya en refri.yaml, combina los productos de productos_base.yaml y
 recetas.yaml y los pega en refri.yaml, usando el formato esperado para refri.yaml.\n
 Toma en cuenta la cantidad de instancias de recetas y no redondea las cantidades combinadas
+'''
+
+main_lista_recetas_help = '''
+Lista los nombres de todos las recetas que estén disponibles en recetas.yaml
 '''
 
 # Execution text

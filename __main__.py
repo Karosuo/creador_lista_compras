@@ -28,7 +28,8 @@ from app_functions import (
     genera_lista_compras,
     print_lista_de_compras,
     genera_lista_refri,
-    get_refri_path
+    get_refri_path,
+    get_recetas
 )
 
 # Create parser for cli params and the subparser for subcommands
@@ -46,6 +47,12 @@ def refri_checklist():
     lista_completa = genera_lista_refri()
     python_to_yaml(yaml_fp=get_refri_path(), data_object=lista_completa)    
     print("\n{!s} modificado existosamente.\n".format(get_refri_path()))
+
+@subcommand(parent=subparsers, subcmd_desc=tdesc.main_lista_recetas_help)
+def lista_recetas():
+    print("\nLista de recetas disponible:\n")
+    for receta in get_recetas():
+        print("- {!s}".format(receta))
 
 # Parse arguments and execute the subcommands if any
 args = parser.parse_args()
