@@ -212,3 +212,24 @@ def arguments(*name_or_flags, **kwargs):
             Mismos valores que se recibieron pero desempacados en una tupla que tenga (*args, **kwargs)        
     '''
     return ([*name_or_flags], kwargs)
+
+def weird_round(number):
+    '''
+    Wrapper para la función estándar de python round()
+    Excepto cuando el número está entre 0 y 1 inclusivo en la izquierda, siempre va a redondear a 1
+    El resto de valores siempre usaran round()
+    
+        
+    Parameters
+    ----------
+    number: float       
+            
+    Returns
+    -------
+        numero : float
+        El número redondeado
+    '''
+    if (number < 1) and (number >= 0):
+        number = 1.0
+    
+    return round(number)

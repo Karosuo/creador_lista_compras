@@ -2,7 +2,8 @@ from utils import (
     yaml_to_python,    
     suma_listas,
     resta_listas,
-    get_src_abspath
+    get_src_abspath,
+    weird_round
 )
 
 PRODUCTOS_BASE_PATH = "datamodels/productos_base.yaml"
@@ -123,7 +124,7 @@ def print_lista_de_compras(lista_compras):
         unidad = detalles.get("unidad", "pieza")
         f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
 
-        if round(cantidad) >= 1.0:
+        if cantidad >= 1:
             if detalles["seccion"] != ultima_seccion:
                 c_seccion = "  -- {!s} --\n".format(detalles["seccion"])
                 ultima_seccion = detalles["seccion"]
@@ -131,7 +132,7 @@ def print_lista_de_compras(lista_compras):
                 c_seccion = ""
 
             lista_compras_formateada = lista_compras_formateada + "{!s}{!s} {!s} de {!s}\n".format(
-                c_seccion, cantidad, f_unidad, articulo
+                c_seccion, weird_round(cantidad), f_unidad, articulo
             )
     return lista_compras_formateada
 
