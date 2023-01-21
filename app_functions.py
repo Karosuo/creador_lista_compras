@@ -119,7 +119,7 @@ def print_lista_de_compras(lista_compras):
     lista_compras_ordenada = dict(lista_compras_ordenada)
     ultima_seccion = ""
     for articulo,detalles in lista_compras_ordenada.items():
-        cantidad = detalles["cantidad"]
+        cantidad = float(detalles["cantidad"])
         unidad = detalles.get("unidad", "pieza")
         f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad        
 
