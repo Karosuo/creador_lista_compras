@@ -130,9 +130,10 @@ def print_lista_de_compras(lista_compras):
             else:
                 c_seccion = ""
             
-            f_unidad = "{!s}s".format(unidad) if (cantidad > 1.0) else unidad
+            rounded_cantidad = weird_round(cantidad)
+            f_unidad = "{!s}s".format(unidad) if (rounded_cantidad > 1.0) else unidad
             lista_compras_formateada = lista_compras_formateada + "{!s}{!s} {!s} de {!s}\n".format(
-                c_seccion, weird_round(cantidad), f_unidad, articulo
+                c_seccion, rounded_cantidad, f_unidad, articulo
             )
     return lista_compras_formateada
 
