@@ -41,6 +41,27 @@ def suma_ingredientes_recetas(lista_recetas):
     return suma_recetas
 
 def genera_lista_compras():
+    """
+    Genera la lista de compras final, función principal del programa    
+    
+    DEPENDECY
+    ---------
+    yaml_to_python(yaml_fp)
+    get_src_abspath()
+    suma_ingredientes_recetas()
+    suma_listas()
+    resta_listas()
+
+    Parameters
+    ----------
+    None 
+
+    Returns
+    -------
+    Lista de recetas : list
+        Lista de diccionarios, la lista de compras final
+        lista_compras = productos_base + suma_recetas - articulos_refri
+    """
     productos_base = yaml_to_python(get_src_abspath(PRODUCTOS_BASE_PATH))
     articulos_refri = yaml_to_python(get_src_abspath(REFRI_PATH))
     lista_recetas = yaml_to_python(get_src_abspath(RECETAS_PATH))
