@@ -28,10 +28,10 @@ def suma_listas(*argv):
         for c_list in argv:
             if not lista_mezclada_sumada.get(articulo):
                 lista_mezclada_sumada[articulo] = dict(lista_mezclada[articulo])
-                lista_mezclada_sumada[articulo]["cantidad"] = 0
+                lista_mezclada_sumada[articulo]["cantidad"] = float(0)
             
             if c_list.get(articulo):
-                lista_mezclada_sumada[articulo]["cantidad"] = lista_mezclada_sumada[articulo]["cantidad"] + c_list[articulo]["cantidad"]
+                lista_mezclada_sumada[articulo]["cantidad"] = float(lista_mezclada_sumada[articulo]["cantidad"]) + float(c_list[articulo]["cantidad"])
     return lista_mezclada_sumada
 
 
